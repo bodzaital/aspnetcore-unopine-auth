@@ -21,13 +21,14 @@ public static class UnverifiedIdentityEndpointsExtensions
 	/// <returns>An <see cref="IEndpointConventionBuilder"/> to further customize the added endpoints.</returns>
 	public static IEndpointConventionBuilder MapUnverifiedIdentityEndpoints<TUser>(
 		this IEndpointRouteBuilder endpoints,
-		string prefix,
-		Dictionary<IdentityEndpoint, string>? endpointMap
+		string? prefix = null,
+		Dictionary<IdentityEndpoint, string>? endpointMap = null
 	) where TUser : class, new()
 	{
+		prefix ??= string.Empty;
+		endpointMap = DefaultIdentityEndpointMap(endpointMap);
+		
 		RouteGroupBuilder routeGroup = endpoints.MapGroup(prefix);
-
-		endpointMap ??= DefaultIdentityEndpointMap();
 
         routeGroup.MapPost(endpointMap[IdentityEndpoint.Register], Register<TUser>);
 		routeGroup.MapPost(endpointMap[IdentityEndpoint.Login], Login<TUser>);
@@ -221,17 +222,32 @@ public static class UnverifiedIdentityEndpointsExtensions
 		throw new NotSupportedException("The user manager must produce an authenticator key after reset.");
 	}
 
-	private static Dictionary<IdentityEndpoint, string> DefaultIdentityEndpointMap() => new()
+	private static Dictionary<IdentityEndpoint, string> DefaultIdentityEndpointMap(Dictionary<IdentityEndpoint, string>? endpointMap)
 	{
-		{ IdentityEndpoint.Register, "/register" },
-		{ IdentityEndpoint.Login, "/login" },
-		{ IdentityEndpoint.Logout, "/logout" },
-		{ IdentityEndpoint.Setup2FA, "/2fa/setup" },
-		{ IdentityEndpoint.Enable2FA, "/2fa/enable" },
-		{ IdentityEndpoint.Reset2FA, "/2fa/reset" },
-		{ IdentityEndpoint.Forget2FA, "/2fa/forget" },
-		{ IdentityEndpoint.Disable2FA, "/2fa/disable" },
-	};
+		Dictionary<IdentityEndpoint, string> defaultMap = new()
+		{
+			{ IdentityEndpoint.Register, "/register" },
+			{ IdentityEndpoint.Login, "/login" },
+			{ IdentityEndpoint.Logout, "/logout" },
+			{ IdentityEndpoint.Setup2FA, "/2fa/setup" },
+			{ IdentityEndpoint.Enable2FA, "/2fa/enable" },
+			{ IdentityEndpoint.Reset2FA, "/2fa/reset" },
+			{ IdentityEndpoint.Forget2FA, "/2fa/forget" },
+			{ IdentityEndpoint.Disable2FA, "/2fa/disable" },
+		};
+
+		if (endpointMap is null) return defaultMap;
+
+		foreach (IdentityEndpoint value in Enum.GetValues<IdentityEndpoint>())
+		{
+			if (!endpointMap.ContainsKey(value))
+			{
+				endpointMap.Add(value, defaultMap[value]);
+			}
+		}
+
+		return endpointMap;
+	}
 
 	private static ValidationProblem CreateValidationProblem(IdentityResult result)
 	{
