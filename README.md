@@ -35,11 +35,11 @@ app.Run();
 Unlike the default Identity endpoints, this supports some configuration. `MapUnverifiedIdentityEndpoints` has two optional parameters:
 
 - `string? prefix = null`
-- `Dictionary<IdentityEndpoint, string>?` endpointMap = null
+- `Dictionary<IdentityEndpoint, string>? endpointMap = null`
 
 The `prefix` parameter applies a prefix through a call to `IEndpointRouteBuilder.MapGroup`. For example, if you want to have all Identity endpoints on URLs like `/api/auth/login`, `/api/auth/register` etc. then add a prefix parameter of `"api/auth"`.
 
-The `endpointMap parameter applies different endpoint routes than the default. For example, instead of "/login" you want to have "/signin" as the route for the logging in endpoint, add a new dictionary with only this entry.
+The `endpointMap` parameter applies different endpoint routes than the default. For example, instead of "/login" you want to have "/signin" as the route for the logging in endpoint, add a new dictionary with only this entry.
 
 ```c#
 new Dictionary<IdentityEndpoint, string>()
