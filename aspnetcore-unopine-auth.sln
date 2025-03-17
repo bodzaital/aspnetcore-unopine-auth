@@ -1,24 +1,34 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.2.0
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unopine.Auth", "Unopine.Auth.csproj", "{6AA67D36-BE8B-7954-503B-9F5CEAFC205B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspnetcore-unopine-auth", "aspnetcore-unopine-auth.csproj", "{5132252D-12D3-496E-AF57-80623739C148}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AA67D36-BE8B-7954-503B-9F5CEAFC205B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AA67D36-BE8B-7954-503B-9F5CEAFC205B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AA67D36-BE8B-7954-503B-9F5CEAFC205B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AA67D36-BE8B-7954-503B-9F5CEAFC205B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Debug|x64.Build.0 = Debug|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Debug|x86.Build.0 = Debug|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Release|x64.ActiveCfg = Release|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Release|x64.Build.0 = Release|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Release|x86.ActiveCfg = Release|Any CPU
+		{5132252D-12D3-496E-AF57-80623739C148}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {11E92BDA-5681-4471-845A-F87C467E01DC}
 	EndGlobalSection
 EndGlobal

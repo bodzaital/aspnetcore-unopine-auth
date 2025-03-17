@@ -4,21 +4,7 @@ Slightly less opinionated copy ASP.NET Core Identity endpoints with Cookie-based
 ## Download
 
 1. Clone the repository into your solution folder
-2. Add the project to your solution
-3. Add project reference in your consumer project
-
-Download with terminal
-
-With your solution folder as working directory, change PROJECT_FOLDER to your consumer project and run the following commands.
-
-**Linux, macOS**
-
-```sh
-git clone https://github.com/bodzaital/aspnetcore-unopine-auth.git &&
-mv aspnetcore-unopine-auth Unopine.Auth &&
-dotnet sln add Unopine.Auth &&
-dotnet add PROJECT_FOLDER reference Unopine.Auth
-```
+2. Copy the contents of the src folder into your project
 
 ## Usage
 
